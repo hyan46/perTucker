@@ -3,6 +3,8 @@ import tensorly as tl
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from perTucker import perTucker
+from Simulation import SimulationExperiments
 
 '''
 Reproduce the Result
@@ -17,20 +19,28 @@ def divide_along_axis(a,b,axis=None):
 
 def main():
     np.random.seed(7777)
-        
+    
+    # generate true label
     label_true=[0,1,2]*50
     label_true.sort()
+
+    # record accuracy
     accuracy=[]
+
+    # perform 100 replications
     for itr in range(100):
+        # generate simulation data, X is the observed data, X_global and X_local are true global and local components
         simulation_data=SimulationExperiments(image_height=50, image_width=50, global_rank=5,
                                           ratio_lowerbound=0.7, ratio_upperbound=1.3,
                                           image_per_client=50 ,nclients_pershape=100,
                                           weight_value=5,global_scale=50)
         X, X_local, X_global = simulation_data.gen_images()
-    
+
+        # perform perTucker decomposition
         test=perTucker([5,5],[[5,5]]*len(X),dims_orthogonal=[0,1],max_itr=30)
         C_global, U_global, C_local, U_local = test.fit(X, rho=10)
 
+        # generate test images and concatenate images
         X_test, _, _ = simulation_data.gen_images()
         X_test=np.transpose(X_test,(0,3,1,2)).reshape(3*simulation_data.image_per_client,50,50)
 
@@ -44,15 +54,15 @@ def main():
     
         print(f'Finished replication {itr}')
 
-
+    # Check the test statistics in the 100th replication
     standard = C_L2_norm.reshape(3,50,3)
     standard_median=np.median(standard,axis=(1,2))
 
-
+    # Devide the test statistics of L2 norm by the median statistics within each category
     temp=divide_along_axis(standard, standard_median,0)
 
 
-
+    # Plot the boxplot
     sns.set(rc={"figure.dpi":800, 'savefig.dpi':800})
     data_box=pd.DataFrame({"Statistics": temp.reshape(150,3).T.reshape(-1,),
                        "Pattern": (["Swiss"]*50+["Oval"]*50+["Rectangle"]*50)*3,
