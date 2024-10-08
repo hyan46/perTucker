@@ -1,0 +1,41 @@
+{
+	"version": 1,
+	"base_image": "registry.codeocean.com/codeocean/miniconda3:4.12.0-python3.9-ubuntu20.04",
+	"options": {},
+	"installers": {
+		"conda": {
+			"packages": [
+				{
+					"name": "matplotlib",
+					"version": "3.9.2"
+				},
+				{
+					"name": "numpy",
+					"version": "1.26.4"
+				},
+				{
+					"name": "pandas",
+					"version": "2.2.2"
+				},
+				{
+					"name": "scipy",
+					"version": "1.12.0"
+				},
+				{
+					"name": "seaborn",
+					"version": "0.13.2"
+				}
+			]
+		},
+		"pip": {
+			"packages": [
+				{
+					"name": "tensorly",
+					"version": "0.8.1"
+				}
+			],
+			"options": {},
+			"pre_install_options": {}
+		}
+	}
+}
