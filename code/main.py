@@ -73,8 +73,8 @@ def main():
             hue = data_box['Label'], orient='v',flierprops=flierprops)
     plt.legend(title='Test statistics for')
     graph.set(xlabel='True patterns', ylabel='Relative norm of local core')
-    plt.savefig('/results/Class_box.png')
-    print("Figure saved to /results/Class_box.png")
+    plt.savefig('results/Class_box.png')
+    print("Done! Figure saved to results/Class_box.png")
 
 if __name__ == "__main__":
     main()
