@@ -1,2 +1,30 @@
 metadata_version: 1
 name: Personalized Tucker
+description: We propose personalized Tucker decomposition (perTucker) to address the
+  limitations of traditional tensor decomposition methods in capturing heterogeneity
+  across different datasets. perTucker decomposes tensor data into shared global components
+  and personalized local components. We introduce a mode orthogonality assumption
+  and develop a proximal gradient regularized block coordinate descent algorithm that
+  is guaranteed to converge to a stationary point. By learning unique and common representations
+  across datasets, we demonstrate perTucker's effectiveness in anomaly detection,
+  client classification, and clustering through a simulation study and two case studies
+  on solar flare detection and tonnage signal classification.
+tags:
+- Tensor
+- Personalized Learning
+authors:
+- name: Jiuyun Hu
+  affiliations:
+  - name: Arizona State University
+- name: Hao Yan
+  affiliations:
+  - name: Arizona State University
+- name: Naichen Shi
+  affiliations:
+  - name: University of Michigan
+- name: Raed Al Kontar
+  affiliations:
+  - name: University of Michigan
+corresponding_contributor:
+  name: Hao Yan
+  email: haoyan@asu.edu
