@@ -58,7 +58,7 @@ def main():
     standard = C_L2_norm.reshape(3,50,3)
     standard_median=np.median(standard,axis=(1,2))
 
-    # Devide the test statistics of L2 norm by the median statistics within each category
+    # Devide the test statistics of L2 norm by the median statistics within each category for better clarification
     temp=divide_along_axis(standard, standard_median,0)
 
 
@@ -74,6 +74,7 @@ def main():
     plt.legend(title='Test statistics for')
     graph.set(xlabel='True patterns', ylabel='Relative norm of local core')
     plt.savefig('/results/Class_box.png')
+    print("Figure saved to /results/Class_box.png")
 
 if __name__ == "__main__":
     main()
