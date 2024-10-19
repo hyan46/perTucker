@@ -1,0 +1,13 @@
+name: perTucker_env
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - matplotlib=3.9.2
+  - numpy=1.26.4
+  - pandas=2.2.2
+  - scipy=1.12.0
+  - seaborn=0.13.2
+  - pip:
+      - tensorly==0.8.1
+
