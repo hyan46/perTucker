@@ -30,3 +30,7 @@ To set up the environment, use the provided `environment.yml`:
 conda env create -f environment.yml
 conda activate perTucker_env
 python code/main.py
+
+## Resutls
+Running the code will reproduce the result in the Figure 5 in the paper as follows
+![plot](./results/Class_box.png)
