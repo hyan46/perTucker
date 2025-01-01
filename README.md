@@ -1,6 +1,6 @@
 # perTucker
 
-This repository implements a personalized Tucker decomposition algorithm. It includes simulation experiments and visualization using Tensorly, SciPy, and other scientific libraries.
+This repository at [https://github.com/hyan46/perTucker] implements a personalized Tucker decomposition algorithm. It includes simulation experiments and visualization using Tensorly, SciPy, and other scientific libraries.
 
 ## Paper Information
 
