@@ -34,3 +34,7 @@ python code/main.py
 ## Results
 Running the code will reproduce the result in the Figure 5 in the paper as follows
 ![plot](./results/Class_box.png)
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
